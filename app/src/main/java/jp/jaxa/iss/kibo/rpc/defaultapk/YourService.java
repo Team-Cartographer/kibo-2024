@@ -1,4 +1,4 @@
-package jp.jaxa.iss.kibo.rpc.cartographer;
+package jp.jaxa.iss.kibo.rpc.defaultapk;
 
 import jp.jaxa.iss.kibo.rpc.api.KiboRpcService;
 
@@ -6,19 +6,9 @@ import gov.nasa.arc.astrobee.types.Point;
 import gov.nasa.arc.astrobee.types.Quaternion;
 import gov.nasa.arc.astrobee.Result;
 
-import org.opencv.core.CvType;
 import org.opencv.core.Mat;
-
-import org.opencv.aruco.Aruco;
-import org.opencv.aruco.DetectorParameters;
-import org.opencv.aruco.Dictionary;
-
-import org.opencv.imgproc.Imgproc;
-import org.opencv.objdetect.QRCodeDetector;
 
 import android.util.Log;
-
-import org.opencv.core.Mat;
 
 /**
  * Class meant to handle commands from the Ground Data System and execute them
@@ -79,27 +69,9 @@ public class YourService extends KiboRpcService {
 
         // Take a snapshot of the target item.
         api.takeTargetItemSnapshot();
-        api.reportMissionCompletion();
         Log.i(TAG, "End Test runPlan1");
     }
 
-    @Override
-    protected void runPlan2() {
-        // write your plan 2 here.
-    }
-
-    @Override
-    protected void runPlan3() {
-        // write your plan 3 here.
-    }
-
-    // You can add your method.
-    private String yourMethod() {
-        return "your method";
-    }
-}
-
-class MovementSystem {
     public void moveTo(Point point, Quaternion quaternion) {
         final int LOOP_MAX = 10;
 
@@ -129,5 +101,20 @@ class MovementSystem {
 
             loopCounter++;
         }
+    }
+
+    @Override
+    protected void runPlan2() {
+        // write your plan 2 here.
+    }
+
+    @Override
+    protected void runPlan3() {
+        // write your plan 3 here.
+    }
+
+    // You can add your method.
+    private String yourMethod() {
+        return "your method";
     }
 }
